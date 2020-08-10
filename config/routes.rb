@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   #root ''#ログイン・サインイン後にトップページに行くように設定
   devise_for :users
   resources :users do
-    resource :followers, only: [:show]
-    resource :followings, only: [:show]
+    resource :relationships
+    get :follows, on: :member # 追加
+    get :followers, on: :member # 追加
   end
 
   get '/home/about', to: 'homes#about'

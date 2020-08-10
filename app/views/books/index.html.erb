@@ -23,12 +23,20 @@
     	  <th><%= @user.introduction %></th>
       </tr>
       <tr>
-        <th>follows</th>
-        <th><%= @user.followings.count %></th>
+       <th>follows</th>
+        <th>
+          <%= link_to(follows_user_path(@user)) do %>
+          <%= @user.followings.count %>
+          <% end %>
+          </th>
       </tr>
       <tr>
         <th>followers</th>
-        <th><%= @user.followers.count %></th>
+        <th>
+          <%= link_to(followers_user_path(@user)) do %>
+          <%= @user.followers.count %>
+            <% end %>
+          </th>
       </tr>
 </tbody></table>
 

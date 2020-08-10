@@ -30,16 +30,14 @@ before_action :correct_user, only: [:edit, :update]
     end
   end
 
-  def followings
-    @user =User.find(params[:id])
-    @users =@user.followings.page(params[:page]).per(5)
-    render 'followings'
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
   end
 
   def followers
-    @user =User.find(params[:id])
-    @users =@user.followers.page(params[:page]).per(5)
-    render 'followers'
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
 private
